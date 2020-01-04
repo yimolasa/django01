@@ -1,0 +1,5 @@
+# Python compiled files and build related files.
+__pycache__
+*.pyc
+
+djg01/zzCommand.txt
