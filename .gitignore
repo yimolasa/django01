@@ -1,5 +1,5 @@
 # Python compiled files and build related files.
 __pycache__
 *.pyc
-
+*.gif
 djg01/zzCommand.txt
