@@ -1,54 +1,41 @@
-from django.shortcuts import render,HttpResponse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import get_object_or_404, render
+from django.contrib import auth
+from .models import UserInfo
+from django.contrib.auth.models import User
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+# from django.views import generic
+# from django.utils import timezone
+# from .models import Choice, Question
 
 # Create your views here.
-from .models import UserInfo
-
-def login(request):
-    kwgs={}
-    # name = request.GET.get("reg")
-    # if 'reg' == name:
-    #     return render(request, "denglu\\reg.html")
-
-    if request.method=="POST":
-        username = request.POST.get("username")
-        password = request.POST.get('password')
-        msg = ''
-        try:
-            userInfo = UserInfo.objects.get(username=username)
-            if userInfo and userInfo.password == password:
-                # return render(request, "denglu\index.html", {"username": username})
-                return HttpResponseRedirect(reverse('denglu:index'))
-            else:
-                msg = "用户名或密码错误"
-        except:
-            msg = "用户名不存在"
-        kwgs = {
-            "msg": msg,
-        }
-
-    return render(request,"denglu\login2.html",kwgs)
-
-def reg(request):
-    if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get('password')
-        ret=UserInfo.objects.create(username=username, password=password,)
-        if ret:
-            # return render(request, "denglu\index.html",{"username":username})
-            return HttpResponseRedirect(reverse('denglu:index'))
-    return render(request,"denglu\\reg.html")
-
 def index(request):
+     return HttpResponse("Hello, world. index.")
 
-    # username = request.POST.get("username")
-    # password = request.POST.get('password')
-    # UserInfo.objects.create(username=username, password=password)
-    # 查询数据
-    user_list = UserInfo.objects.all()
-    return render(request, 'denglu\index.html',{'user_list': user_list})
+def login(request):    
+    if request.method == 'POST':        
+        username = request.POST.get('username')        
+        password = request.POST.get('password')        
+        user = auth.authenticate(username=username, password=password)        
+        if user:            
+            auth.login(request, user)  #这里做了登录    
+            print('fuck')    
+            return HttpResponseRedirect(reverse('denglu:al'))
+    return render(request, "denglu\login.html")
 
+def register(request):    
+    if request.method == 'POST':        
+        username = request.POST.get('username')        
+        password = request.POST.get('password')        
+        #username, email=None, password=None, **extra_fields        
+        user = User.objects.create_user(username=username,password=password)        
+        user.save()       
+        if user:            
+            auth.login(request, user) 
+    return render(request, "denglu\login.html")
 
-def register(request):
-     return HttpResponse("register.")    
+@login_required(login_url="denglu:login")
+def al(request):
+    print(request)
+    return HttpResponse("yoo")    

@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import url  
 
 from . import views
 
@@ -7,7 +8,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login', views.login, name='login'),
     path('register', views.register, name='register'), 
-    path('reg', views.reg, name='reg'), 
+    # path('reg', views.reg, name='reg'), 
+    path('al', views.al, name='al'), 
+    # url(r'^login', views.login),
     # # ex: /polls/
     # path('', views.index, name='index'),
     # # ex: /polls/5/
