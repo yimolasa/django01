@@ -21,7 +21,7 @@ def login(request):
         if user:            
             auth.login(request, user)  #这里做了登录    
             print('fuck')    
-            return HttpResponseRedirect(reverse('denglu:al'))
+            return HttpResponseRedirect(reverse('denglu:al', args=(username,)))
     return render(request, "denglu\login.html")
 
 def register(request):    
@@ -32,10 +32,11 @@ def register(request):
         user = User.objects.create_user(username=username,password=password)        
         user.save()       
         if user:            
-            auth.login(request, user) 
-    return render(request, "denglu\login.html")
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('denglu:al', args=(username,)))
+    return render(request, "denglu\\register.html")
 
-@login_required(login_url="denglu:login")
-def al(request):
-    print(request)
-    return HttpResponse("yoo")    
+@login_required(login_url="denglu:login" ) # , redirect_field_name="xxxx",
+def al(request,username):
+    print(username)
+    return HttpResponse(username)    

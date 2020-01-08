@@ -10,6 +10,7 @@ urlpatterns = [
     path('register', views.register, name='register'), 
     # path('reg', views.reg, name='reg'), 
     path('al', views.al, name='al'), 
+    path('al/<str:username>/', views.al, name='al'), 
     # url(r'^login', views.login),
     # # ex: /polls/
     # path('', views.index, name='index'),
