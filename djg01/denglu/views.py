@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-     return HttpResponse("Hello, world. index.")
+    user_list = User.objects.all()
+    return render(request, 'denglu\index.html', {'user_list': user_list})
 
 def login(request):    
     if request.method == 'POST':        

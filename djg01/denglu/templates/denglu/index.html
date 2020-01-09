@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>登录</title>
+    <title>show list</title>
 </head>
 <body>
-<form method="post">
+<!-- <form method="post"> -->
 {% csrf_token %}
  <h1>所有用户</h1>
 {% if user_list %}
@@ -13,7 +13,7 @@
 		{% for user in user_list %}
 		<tr>
 			<td>{{ user.username }}</td>
-			<td>{{ user.password }}</td>
+			<!-- <td>{{ user.password }}</td> -->
 		</tr>
 		{% endfor %}
 	</table>
