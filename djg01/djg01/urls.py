@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('dl/',include('denglu.urls')),
+    path('dl2/',include('denglu2.urls')),
 
     # path('', include('polls.urls')),
 
