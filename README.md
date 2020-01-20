@@ -1,7 +1,7 @@
 # django01
 # polls
-## official tutorials
+official tutorials
 # denglu
-## log in sample
+log in sample
 # denglu2
-## log in with AD account
+log in with AD account
