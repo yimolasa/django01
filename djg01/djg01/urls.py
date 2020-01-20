@@ -23,6 +23,7 @@ urlpatterns = [
     path('dl/',include('denglu.urls')),
     path('dl2/',include('denglu2.urls')),
     path('psql01/',include('psql01.urls')),
+    path('bs01/',include('bootstrap01.urls')),
     # path('', include('polls.urls')),
 
 
