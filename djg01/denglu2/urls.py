@@ -6,7 +6,7 @@ from . import views
 app_name = 'denglu2'
 urlpatterns = [
     # path('', views.index, name='index'),
-    # path('login', views.login, name='login'),
+    path('login', views.login, name='login'),
     # path('register', views.register, name='register'), 
     # # path('reg', views.reg, name='reg'), 
     # path('al', views.al, name='al'), 

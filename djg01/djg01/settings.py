@@ -139,28 +139,34 @@ LDAP_AUTH_URL = "ldap://cnsouvmdc101:389"
 LDAP_AUTH_USE_TLS = False
 
 # The LDAP search base for looking up users. sig.dom/CNSOU/Local Resources/Users/Extra Accounts/EQtest01
+# LDAP_AUTH_SEARCH_BASE = "dc=sig,dc=dom"
 LDAP_AUTH_SEARCH_BASE = "ou=Extra Accounts,ou=Users,ou=Local Resources,ou=cnsou,dc=sig,dc=dom"
 
 LDAP_AUTH_USER_FIELDS = {
     "username": "sAMAccountName",
+    # "memberOf": "memberOf",
     # "first_name": "givenName",
     # "last_name": "sn",
     # "email": "mail",
 }
+# LDAP_AUTH_CLEAN_USER_DATA = "django_python3_ldap.utils.clean_user_data"
 
 LDAP_AUTH_OBJECT_CLASS = "user"
-
+# LDAP_AUTH_USER_LOOKUP_FIELDS = ("username",)
 LDAP_AUTH_FORMAT_USERNAME = "django_python3_ldap.utils.format_username_active_directory"
 LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN = "sig"
 
+# # together when creating the final search filter.
+# LDAP_AUTH_FORMAT_SEARCH_FILTERS = "django_python3_ldap.utils.format_search_filters"
+
 #custom filter
-LDAP_AUTH_FORMAT_SEARCH_FILTERS = "denglu2.models.custom_format_search_filters"
+# LDAP_AUTH_FORMAT_SEARCH_FILTERS = "denglu2.models.custom_format_search_filters" # Not working
 
 # The LDAP username and password of a user for querying the LDAP database for user
 # details. If None, then the authenticated user will be used for querying, and
 # the `ldap_sync_users` command will perform an anonymous query.
-LDAP_AUTH_CONNECTION_USERNAME = 'eqtest01'
-LDAP_AUTH_CONNECTION_PASSWORD = 'Qwert!2345'
+LDAP_AUTH_CONNECTION_USERNAME = 'user01'
+LDAP_AUTH_CONNECTION_PASSWORD = 'passwd'
 
 # Set connection/receive timeouts (in seconds) on the underlying `ldap3` library.
 LDAP_AUTH_CONNECT_TIMEOUT = 10
