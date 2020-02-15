@@ -73,7 +73,6 @@ TEMPLATES = [
 ]
 
 
-
 WSGI_APPLICATION = 'djg01.wsgi.application'
 
 
