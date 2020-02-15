@@ -1,7 +1,0 @@
-python manage.py runserver              # run web service
-python manage.py startapp polls         # new an app (polls)
-python manage.py migrate                # operate with database
-python manage.py makemigrations polls   # check changes of INSTALLED_APPS (polls) && generate a migration file, which could apply these changes to databse.
-python manage.py sqlmigrate polls 0001  # display these changes (CREATE TABLE "polls_question" ("id" integer NOT NULL PRIMARY KEY AUTOINCRE......))
-python manage.py migrate                # operate with database
-python manage.py createsuperuser        # create admin

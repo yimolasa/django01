@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'denglu.apps.DengluConfig',
     'denglu2.apps.Denglu2Config',
+    'psql01.apps.Psql01Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,6 +72,14 @@ TEMPLATES = [
     },
 ]
 
+DATABASE_ROUTERS = ['djg01.dbrouter.DatabaseAppsRouter']
+DATABASE_APPS_MAPPING = {
+    # example:
+    # 'app_name':'database_name',
+    'psql01': 'psql',
+    'app01': 'psql',
+}
+
 WSGI_APPLICATION = 'djg01.wsgi.application'
 
 
@@ -81,7 +90,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'psql': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'test',  # 数据库名字(需要先创建)
+        'USER': 'postgres',  # 登录用户名
+        'PASSWORD': '123',  # 密码
+        'HOST': '',  # 数据库IP地址,留空默认为localhost
+        'PORT': '5432',  # 端口
     }
+
 }
 
 
@@ -126,7 +144,7 @@ STATIC_URL = '/static/'
 # LOGIN_REDIRECT_URL = '/' # for Denglu2
 
 
-# AD connection
+# AD connection ################################
 
 
 AUTHENTICATION_BACKENDS = [
@@ -189,3 +207,6 @@ LOGGING = {
         },
     },
 }
+
+
+# AD connection ################################
