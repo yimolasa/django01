@@ -72,6 +72,14 @@ TEMPLATES = [
     },
 ]
 
+
+
+WSGI_APPLICATION = 'djg01.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 DATABASE_ROUTERS = ['djg01.dbrouter.DatabaseAppsRouter']
 DATABASE_APPS_MAPPING = {
     # example:
@@ -79,12 +87,6 @@ DATABASE_APPS_MAPPING = {
     'psql01': 'psql',
     'app01': 'psql',
 }
-
-WSGI_APPLICATION = 'djg01.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
