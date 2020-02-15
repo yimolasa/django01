@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>db info</title>
+</head>
+
+<body>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <label>name：</label>
+        <input name="name" type="text">
+        <label>id：</label>
+        <input name="id" type="text">
+        <label>path：</label>
+        <input name="path" type="text">
+        <input type="submit" value="add record"  />
+    </form>
+    
+    <!-- <form method="post"> -->
+    {% csrf_token %}
+    <h1>所有用户</h1>
+    {% if records %}
+    <table>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.name }}</td>
+            <td>{{ record.id }}</td>
+            <td>{{ record.path }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    </form>
+</body>
+
+</html>
