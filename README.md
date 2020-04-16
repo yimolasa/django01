@@ -24,6 +24,10 @@ multiple DB connection
 * [psql01](http://127.0.0.1:8000/psql01/ '/psql01')
 # tips
 
+* Display README.md in VScode
+
+    Ctrl + Shift + V
+
 * Basic
 ```python
     python manage.py runserver              # run web service   

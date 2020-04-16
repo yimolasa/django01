@@ -34,8 +34,10 @@ INSTALLED_APPS = [
     'django_python3_ldap',
     'polls.apps.PollsConfig',
     'denglu.apps.DengluConfig',
-    'denglu2.apps.Denglu2Config',
-    'psql01.apps.Psql01Config',
+    'bootstrap4',
+    # 'denglu2.apps.Denglu2Config',
+    # 'psql01.apps.Psql01Config',
+    'bootstrap01.apps.Bootstrap01Config',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,7 +141,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 STATIC_URL = '/static/'
 
 # LOGIN_REDIRECT_URL = '/' # for Denglu2
