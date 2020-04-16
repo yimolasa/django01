@@ -30,9 +30,10 @@ multiple DB connection
 
 * Basic
 ```python
-    python manage.py runserver              # run web service   
+    django-admin startproject djg01         # initial project
     python manage.py startapp polls         # create new app (polls) 
     python manage.py createsuperuser        # create admin  
+    python manage.py runserver              # run web service
 ```
 * Play with database
 ```python
