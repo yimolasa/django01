@@ -47,3 +47,11 @@ multiple DB connection
     pip install PyMySQL                     # for mysql
     pip install psycopg2                    # for PostgreSQL
 ```
+
+* Decorator
+```
+@login_required(login_url="denglu:login" ) # , redirect_field_name="xxxx",
+def al(request,username):
+    print(username)
+    return HttpResponse(username) 
+```    
